@@ -8,10 +8,10 @@ function App() {
   const [submitting, setSubmitting] = useState(false);
   const [expandedBrands, setExpandedBrands] = useState({});
   
-  // Hero Carousel State - Initialized exactly to screenshot (Slide 1: Jaguar Type 01)
+  // Hero Carousel State - Initialized to Paidhu Ecosystem (Floral Foods, IT, Education)
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [activeTab, setActiveTab] = useState('lead');
+  const [activeTab, setActiveTab] = useState('food');
   const [categoryFilter, setCategoryFilter] = useState('all');
 
   // Mega Menu Hover State
@@ -27,49 +27,49 @@ function App() {
 
   const heroSlides = [
     {
-      id: 'lead',
-      badge: 'Tata Stories',
-      badgeType: 'blue',
-      title: 'A New Era Begins',
-      description: 'Jaguar unveils Type 01, its most powerful and technologically advanced road car ever',
-      buttonText: 'Watch videos',
-      bgImage: '/assets/jaguar_type01_front_1920.jpg',
-      previewTitle: 'Jaguar Type 01',
-      previewThumb: '/assets/jaguar_thumb.png',
-      sectionId: 'brands'
-    },
-    {
-      id: 'social',
-      badge: 'Tata Stories',
+      id: 'food',
+      badge: 'Paidhu Stories',
       badgeType: 'blue',
       title: 'Pure Floral Goodness',
-      description: 'Discover Grade-A Kashmiri Saffron and premium edible flower-based foods crafted with natural ingredients, preservative-free for authentic wellness.',
-      buttonText: 'Discover Products',
-      bgImage: '/assets/hero_saffron.jpg',
+      description: 'Pioneering organic edible flower-based foods, artisanal Bloom Cookies, Petal Jams, and Grade-A Kashmiri Saffron for holistic everyday wellness.',
+      buttonText: 'Explore Foods',
+      bgImage: '/assets/hero_flower_food.jpg',
       previewTitle: 'Floral Goodness',
-      previewThumb: '/assets/hero_saffron.jpg',
+      previewThumb: '/assets/hero_flower_food.jpg',
       sectionId: 'brands'
     },
     {
-      id: 'heritage',
-      badge: 'Tata Stories',
+      id: 'tech',
+      badge: 'Technology & IT',
       badgeType: 'blue',
-      title: 'Where India Grows Next',
-      description: 'Tata companies are reshaping their strategies to cater to the aspirations of consumers in markets beyond the metros.',
-      buttonText: 'Read stories',
-      bgImage: '/assets/slide3_metros.jpg',
-      previewTitle: 'Beyond Metros',
-      previewThumb: '/assets/slide3_metros.jpg',
+      title: 'Next-Gen IT Innovation',
+      description: 'VIYARA delivers scalable enterprise software, cloud infrastructure, and data-driven digital transformations that power modern enterprises.',
+      buttonText: 'Discover Viyara Tech',
+      bgImage: '/assets/hero_tech.jpg',
+      previewTitle: 'VIYARA Tech',
+      previewThumb: '/assets/hero_tech.jpg',
+      sectionId: 'brands'
+    },
+    {
+      id: 'education',
+      badge: 'Education & Community',
+      badgeType: 'blue',
+      title: 'Empowering Future Creators',
+      description: 'Kalikasphere bridges creativity, digital skills, and innovation through hands-on workshops and collaborative learning ecosystems.',
+      buttonText: 'Explore KalikaSphere',
+      bgImage: '/assets/hero_education.jpg',
+      previewTitle: 'KalikaSphere',
+      previewThumb: '/assets/hero_education.jpg',
       sectionId: 'brands'
     }
   ];
 
   const rightTabs = [
-    { id: 'lead', label: 'Lead Stories', slideIndex: 0 },
-    { id: 'social', label: 'Social Media', slideIndex: 1 },
-    { id: 'heritage', label: 'Heritage', slideIndex: 2 },
+    { id: 'food', label: 'Floral Foods', slideIndex: 0 },
+    { id: 'tech', label: 'IT & Software', slideIndex: 1 },
+    { id: 'education', label: 'Education Hub', slideIndex: 2 },
     { id: 'careers', label: 'Careers', slideIndex: 0, scrollTo: 'careers' },
-    { id: 'brands', label: 'Our Brands', slideIndex: 0, scrollTo: 'brands' }
+    { id: 'brands', label: 'All Brands', slideIndex: 0, scrollTo: 'brands' }
   ];
 
   const toggleExpand = (e, id) => {
@@ -238,7 +238,8 @@ function App() {
       >
         <div className="navbar-left">
           <a href="#home" className="nav-brand" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-            <img src="/assets/Tata_Logo2.svg" alt="TATA" className="nav-brand-logo tata-brand-logo" />
+            <img src="/assets/paidhu_monogram_white.png" alt="Paidhu Group" className="paidhu-brand-monogram" />
+            <span className="paidhu-brand-text">PAIDHU</span>
           </a>
         </div>
 
