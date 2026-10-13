@@ -24,6 +24,7 @@ function App() {
   const [showContactModal, setShowContactModal] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const heroSlides = [
     {
@@ -331,6 +332,73 @@ function App() {
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
           </button>
+
+          {/* Mobile Menu Hamburger Toggle */}
+          <button 
+            className="mobile-menu-toggle" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {mobileMenuOpen ? (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            ) : (
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Navigation Drawer */}
+        <div className={`mobile-nav-drawer ${mobileMenuOpen ? 'open' : ''}`}>
+          <div className="mobile-nav-links">
+            <a 
+              href="#brands" 
+              className="mobile-nav-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection('brands'); setMobileMenuOpen(false); }}
+            >
+              Business & Ecosystem
+            </a>
+            <a 
+              href="#about" 
+              className="mobile-nav-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection('about'); setMobileMenuOpen(false); }}
+            >
+              Community Impact
+            </a>
+            <a 
+              href="#about" 
+              className="mobile-nav-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection('about'); setMobileMenuOpen(false); }}
+            >
+              About Paidhu Group
+            </a>
+            <a 
+              href="#home" 
+              className="mobile-nav-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection('home'); setMobileMenuOpen(false); }}
+            >
+              Stories & News
+            </a>
+            <a 
+              href="#careers" 
+              className="mobile-nav-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection('careers'); setMobileMenuOpen(false); }}
+            >
+              Careers
+            </a>
+            <button 
+              className="mobile-nav-contact-btn"
+              onClick={() => { setShowContactModal(true); setMobileMenuOpen(false); }}
+            >
+              Contact Us
+            </button>
+          </div>
         </div>
 
         {/* Business Mega Menu Overlay Container */}

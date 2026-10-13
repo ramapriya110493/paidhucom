@@ -1352,6 +1352,93 @@ body {
 /* ==========================================================================
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
+/* Mobile Menu Toggle Button (Hidden on Desktop) */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Mobile Navigation Drawer */
+.mobile-nav-drawer {
+  display: none;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  background: rgba(8, 8, 8, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.95);
+  padding: 1.5rem 1.25rem 2rem;
+  z-index: 999;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-drawer.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.mobile-nav-link {
+  color: var(--text-silver);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-link:hover {
+  color: var(--accent-gold);
+  padding-left: 6px;
+}
+
+.mobile-nav-contact-btn {
+  margin-top: 0.8rem;
+  background: var(--accent-gold-gradient);
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
 @media (max-width: 1024px) {
   .hero-heading {
     font-size: 2.8rem;
@@ -1372,37 +1459,268 @@ body {
 }
 
 @media (max-width: 768px) {
+  /* Prevent any horizontal screen shake */
+  html, body, .app-container {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Header & Mobile Navbar */
+  .navbar {
+    padding: 0 16px;
+    height: 64px;
+  }
   .navbar-center {
     display: none;
   }
   .mega-menu-overlay {
     display: none;
   }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .mobile-nav-drawer {
+    display: block;
+  }
+  .paidhu-brand-monogram {
+    height: 32px;
+    width: 32px;
+  }
+  .paidhu-brand-text {
+    font-size: 1.25rem;
+    letter-spacing: 2.5px;
+  }
+  .navbar-right {
+    gap: 6px;
+  }
+  .nav-icon-btn {
+    padding: 6px;
+  }
+  .nav-icon-btn[aria-label="Globe"] {
+    display: none;
+  }
+
+  /* Hero Section Mobile Adaptation */
+  .hero-tata {
+    min-height: 100svh;
+    height: auto;
+    padding: 80px 18px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .vertical-capsule-bar {
+    display: none !important;
+  }
+  .hero-right-container {
+    display: none !important;
+  }
   .hero-content-box {
-    margin-left: 5%;
-    max-width: 90%;
+    margin-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+    margin-top: auto;
+    margin-bottom: 1.4rem;
+  }
+  .hero-badge {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    margin-bottom: 0.7rem;
   }
   .hero-heading {
-    font-size: 2.2rem;
-  }
-  .section-heading {
     font-size: 2rem;
+    line-height: 1.18;
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.01em;
   }
+  .hero-description-tata {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+    max-width: 100%;
+  }
+  .hero-action-btn {
+    padding: 0.65rem 1.3rem;
+    font-size: 0.88rem;
+    width: fit-content;
+  }
+
+  /* Hero Bottom Controls */
   .hero-bottom-controls {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    display: flex;
     flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: auto;
+  }
+  .hero-bottom-left-group {
+    width: 100%;
+    gap: 8px;
   }
   .controls-center-progress {
     width: 100%;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: stretch;
+  }
+  .progress-bar-track {
+    flex: 1;
+    width: auto;
+    height: 3px;
+    min-width: 0;
+  }
+  .track-preview-card {
+    display: none !important;
+  }
+  .controls-counter-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 2px;
+  }
+  .slide-counter {
+    font-size: 0.82rem;
+  }
+  .controls-right-scroll {
+    display: none !important;
+  }
+
+  /* Sections Spacing */
+  .brands-section-tata,
+  .about-section-tata,
+  .careers-section-tata {
+    padding: 3.5rem 16px 4rem;
+  }
+  .section-header-tata {
+    margin-bottom: 2rem;
+  }
+  .section-kicker {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.4rem;
+  }
+  .section-heading {
+    font-size: 1.8rem;
+    line-height: 1.25;
+    margin-bottom: 0.8rem;
+  }
+  .section-subtext {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  /* Smooth Horizontal Category Filters */
+  .category-filters {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 8px;
+    justify-content: flex-start;
+    padding: 4px 2px 10px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .category-filters::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-chip {
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Single Column Card Grids on Mobile */
+  .brands-grid-tata {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin: 0 auto;
+  }
+  .brand-card-tata {
+    padding: 1.5rem 1.25rem;
+    border-radius: 12px;
+  }
+  .brand-name {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .brand-description {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+  }
+  .brand-logo-wrapper {
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+  .brand-logo-img {
+    max-height: 44px;
+    max-width: 140px;
+  }
+
+  .about-grid-tata,
+  .careers-grid-tata {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .about-card-tata,
+  .career-card-tata {
+    padding: 1.5rem 1.25rem;
+  }
+
+  /* Footer Mobile */
+  .footer-tata {
+    padding: 3.5rem 16px 2.5rem;
   }
   .footer-top-row {
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  .footer-nav-cols {
+    gap: 2rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
   .footer-bottom-row {
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
+    text-align: left;
+  }
+  .footer-legal {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Modals */
+  .modal-box {
+    width: 92%;
+    max-width: 440px;
+    padding: 1.8rem 1.25rem;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-heading {
+    font-size: 1.7rem;
+  }
+  .paidhu-brand-text {
+    font-size: 1.12rem;
+    letter-spacing: 1.8px;
+  }
+  .footer-nav-cols {
+    grid-template-columns: 1fr;
   }
 }
