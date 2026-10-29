@@ -99,7 +99,7 @@ function App() {
             category: 'food',
             description: "Paidhu – The Edible Flower Co. offers premium edible flower-based foods, including Bloom Cookies, Petal Jams, Medley Teas, Brew Flora, and Saffron, crafted with natural ingredients. We are committed to healthy, preservative-free, and ethically made products that bring wellness and floral goodness to everyday life.",
             url: 'https://paidhuethicalfoods.com',
-            logo: '/assets/paidhu_logo_white.png'
+            logo: '/assets/paidhu_official_logo.png'
           },
           {
             id: 'paidhusaffron',
@@ -239,8 +239,7 @@ function App() {
       >
         <div className="navbar-left">
           <a href="#home" className="nav-brand" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}>
-            <img src="/assets/paidhu_monogram_white.png" alt="Paidhu Group" className="paidhu-brand-monogram" />
-            <span className="paidhu-brand-text">PAIDHU</span>
+            <img src="/assets/paidhu_official_logo.png" alt="Paidhu" className="paidhu-brand-logo-img" />
           </a>
         </div>
 
@@ -1005,8 +1004,7 @@ function App() {
         <div className="footer-top-row">
           <div className="footer-brand-info">
             <div className="footer-logo">
-              <img src="/assets/paidhu_monogram_white.png" alt="Paidhu logo" style={{ height: '32px', objectFit: 'contain' }} />
-              <img src="/assets/paidhu_text_gold.png" alt="Paidhu" style={{ height: '20px', objectFit: 'contain' }} />
+              <img src="/assets/paidhu_official_logo.png" alt="Paidhu" className="paidhu-footer-logo-img" />
             </div>
             <p className="footer-tagline">Driving ethical growth, premium lifestyles, luxury craftsmanship, and smart education.</p>
           </div>

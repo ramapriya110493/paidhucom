@@ -14,7 +14,7 @@ export default function handler(req, res) {
       category: 'food',
       description: "Paidhu – The Edible Flower Co. offers premium edible flower-based foods, including Bloom Cookies, Petal Jams, Medley Teas, Brew Flora, and Saffron, crafted with natural ingredients. We are committed to healthy, preservative-free, and ethically made products that bring wellness and floral goodness to everyday life.",
       url: 'https://paidhuethicalfoods.com',
-      logo: '/assets/paidhu_logo_white.png'
+      logo: '/assets/paidhu_official_logo.png'
     },
     {
       id: 'paidhusaffron',
