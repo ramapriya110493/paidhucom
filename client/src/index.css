@@ -1368,6 +1368,417 @@ body {
 }
 
 /* ==========================================================================
+   OUR TIMELINES / POP-ART HERITAGE SHOWCASE (MATCHING REFERENCE IMAGE)
+   ========================================================================== */
+.paidhu-timelines-section {
+  position: relative;
+  min-height: clamp(520px, 80vh, 720px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #090c15;
+  color: #ffffff;
+  padding: 5rem 6% 6rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  box-sizing: border-box;
+}
+
+.timelines-bg-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.timelines-collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.9) contrast(1.1);
+  transform: scale(1.02);
+  transition: transform 12s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.paidhu-timelines-section:hover .timelines-collage-img {
+  transform: scale(1.06);
+}
+
+.timelines-overlay-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 9, 16, 0.42) 0%,
+    rgba(7, 9, 16, 0.7) 48%,
+    rgba(6, 8, 14, 0.95) 100%
+  );
+  pointer-events: none;
+}
+
+.timelines-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center 60%, transparent 25%, rgba(5, 7, 12, 0.85) 100%);
+  pointer-events: none;
+}
+
+.timelines-content-container {
+  position: relative;
+  z-index: 5;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timelines-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+  padding: 6px 18px;
+  border-radius: 20px;
+  color: var(--gold-primary);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.timelines-kicker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  box-shadow: 0 0 8px var(--gold-primary);
+}
+
+.timelines-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4.8vw, 4rem);
+  font-weight: 700;
+  font-style: italic;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.9);
+}
+
+.timelines-paragraph {
+  color: #f1f5f9;
+  font-size: clamp(0.96rem, 1.2vw, 1.12rem);
+  line-height: 1.7;
+  max-width: 780px;
+  margin: 0 auto 2rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  font-weight: 400;
+}
+
+.timelines-explore-cta {
+  background: transparent;
+  border: none;
+  color: var(--gold-primary);
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-bottom: 2.8rem;
+  font-family: var(--font-sans);
+}
+
+.timelines-explore-cta .cta-arrow {
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.timelines-explore-cta:hover {
+  color: #ffffff;
+}
+
+.timelines-explore-cta:hover .cta-arrow {
+  transform: translateX(6px);
+  color: var(--gold-light);
+}
+
+/* Interactive Milestone Dock */
+.timelines-milestone-dock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(10, 13, 20, 0.75);
+  padding: 8px 16px;
+  border-radius: 40px;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.5);
+}
+
+.milestone-pill {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #cbd5e1;
+  padding: 7px 18px;
+  border-radius: 24px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.milestone-pill .milestone-year {
+  color: var(--gold-primary);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.milestone-pill .milestone-title-brief {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.milestone-pill:hover,
+.milestone-pill.active {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: var(--gold-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.milestone-pill.active .milestone-title-brief {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   INTERACTIVE TIMELINE MODAL STYLES
+   ========================================================================== */
+.timeline-modal-card {
+  background: #090a0f;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  max-width: 880px;
+  width: 92%;
+  padding: 2.2rem 2.5rem;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-timeline-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.8rem 0 2rem;
+  position: relative;
+  padding: 0 10px;
+}
+
+.modal-timeline-stepper::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: rgba(212, 175, 55, 0.25);
+  z-index: 1;
+}
+
+.modal-step-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+  padding: 0 4px;
+}
+
+.modal-step-btn .step-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  transition: all 0.3s ease;
+}
+
+.modal-step-btn.active .step-dot {
+  background: var(--gold-primary);
+  border-color: #ffffff;
+  box-shadow: 0 0 12px var(--gold-primary);
+  transform: scale(1.3);
+}
+
+.modal-step-btn .step-year {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.modal-step-btn.active .step-year {
+  color: var(--gold-primary);
+  font-weight: 700;
+}
+
+.modal-milestone-body {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2rem;
+  align-items: center;
+  background: #11131a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.milestone-image-col {
+  position: relative;
+  height: 260px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.milestone-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.milestone-tag-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+}
+
+.milestone-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.milestone-year-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 0.5rem;
+}
+
+.milestone-big-year {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  line-height: 1;
+}
+
+.milestone-subtitle-gold {
+  color: var(--gold-light);
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.milestone-story-title {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+}
+
+.milestone-story-desc {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 1.4rem;
+}
+
+.milestone-controls {
+  display: flex;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1rem;
+}
+
+.milestone-nav-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.milestone-nav-btn:hover:not(:disabled) {
+  background: rgba(212, 175, 55, 0.18);
+  border-color: var(--gold-primary);
+  color: var(--gold-primary);
+}
+
+.milestone-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .modal-milestone-body {
+    grid-template-columns: 1fr;
+  }
+  .milestone-image-col {
+    height: 180px;
+  }
+  .timeline-modal-card {
+    padding: 1.5rem;
+  }
+  .modal-step-btn .step-year {
+    font-size: 0.72rem;
+  }
+}
+
+/* ==========================================================================
    VENTURES & BRAND ECOSYSTEM SECTION (LUXURY BENTO GRID)
    ========================================================================== */
 .paidhu-ventures-section {

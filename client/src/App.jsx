@@ -23,6 +23,53 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Timelines State
+  const [showTimelineModal, setShowTimelineModal] = useState(false);
+  const [selectedMilestone, setSelectedMilestone] = useState(0);
+
+  const paidhuTimelineMilestones = [
+    {
+      year: '2018',
+      title: 'The Genesis of Ethical Purity',
+      subtitle: 'Kashmiri Mongra Saffron Foundations',
+      description: 'Paidhu Group commenced operations with a core mission: bringing 100% pure, unadulterated Kashmiri Mongra Saffron directly from artisanal high-altitude valley harvests to discerning international connoisseurs. Establishing strict purity standards, Paidhu pioneered transparent ethical sourcing in traditional agriculture.',
+      image: '/assets/hero_saffron.jpg',
+      tag: 'ORIGINS & PURITY'
+    },
+    {
+      year: '2020',
+      title: 'Pioneering Botanical Agriculture',
+      subtitle: 'Climate-Controlled Clean Cultivation',
+      description: 'Expanding beyond single spices, Paidhu invested in climate-controlled artisanal processing and sustainable botanical horticulture, developing ethical farm partnerships across Kashmir and Himachal Pradesh for handpicked edible flora and organic culinary extracts.',
+      image: '/assets/hero_heritage.jpg',
+      tag: 'AGRI-INNOVATION'
+    },
+    {
+      year: '2022',
+      title: 'Floffi Artisanal Foods Launch',
+      subtitle: 'Luxury Edible Flora & Gourmet Confections',
+      description: "Launching the Floffi brand, Paidhu created India's first premium line of handcrafted edible flower butter cookies, petal jams, and saffron delicacies. Built strictly with 100% organic damask rose, blue pea, and calendula petals with zero artificial preservatives.",
+      image: '/assets/hero_flower_food.jpg',
+      tag: 'GOURMET LUXURY'
+    },
+    {
+      year: '2024',
+      title: 'KalikaSphere & Digital Ecosystems',
+      subtitle: 'Next-Generation Learning & Enterprise Solutions',
+      description: 'Diversifying into education and technology, Paidhu established KalikaSphere, an enterprise platform focused on empowering next-gen leaders through creative workshops, digital transformation, and strategic innovation consulting.',
+      image: '/assets/hero_education.jpg',
+      tag: 'TECH & LEARNING'
+    },
+    {
+      year: '2026',
+      title: 'Global Luxury & Ethical Enterprise',
+      subtitle: 'Unified Conglomerate & International Expansion',
+      description: 'Today, Paidhu Group stands as a multidisciplinary conglomerate spanning premium agricultural wellness, gourmet confections, innovative tech platforms, and conscious lifestyle ventures, setting the standard for compassionate modern enterprise.',
+      image: '/assets/hero_tech.jpg',
+      tag: 'THE NEW ERA'
+    }
+  ];
+
   // News & Dispatches State
   const [featuredNewsSlide, setFeaturedNewsSlide] = useState(0);
   const [companyNewsIndex, setCompanyNewsIndex] = useState(0);
@@ -358,6 +405,15 @@ function App() {
                   onClick={(e) => { e.preventDefault(); scrollToSection('brands'); }}
                 >
                   Ventures
+                  <span className="gold-indicator" />
+                </a>
+              </li>
+                            <li>
+                <a 
+                  href="#timelines" 
+                  onClick={(e) => { e.preventDefault(); scrollToSection('timelines'); }}
+                >
+                  Timelines
                   <span className="gold-indicator" />
                 </a>
               </li>
@@ -1191,6 +1247,78 @@ function App() {
       </section>
 
       {/* Contact Modal Drawer */}
+      {/* Interactive Timeline Modal */}
+      {showTimelineModal && (
+        <div className="paidhu-modal-backdrop" onClick={() => setShowTimelineModal(false)}>
+          <div className="timeline-modal-card" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-top">
+              <div>
+                <span className="modal-kicker">PAIDHU GROUP HERITAGE & LEGACY</span>
+                <h3 className="modal-title">Milestones of Innovation</h3>
+              </div>
+              <button 
+                className="modal-close-btn" 
+                onClick={() => setShowTimelineModal(false)}
+                aria-label="Close timeline modal"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Horizontal Timeline Bar */}
+            <div className="modal-timeline-stepper">
+              {paidhuTimelineMilestones.map((m, idx) => (
+                <button
+                  key={m.year}
+                  className={`modal-step-btn ${selectedMilestone === idx ? 'active' : ''}`}
+                  onClick={() => setSelectedMilestone(idx)}
+                >
+                  <span className="step-dot" />
+                  <span className="step-year">{m.year}</span>
+                </button>
+              ))}
+            </div>
+
+            {/* Active Milestone Card */}
+            <div className="modal-milestone-body">
+              <div className="milestone-image-col">
+                <img 
+                  src={paidhuTimelineMilestones[selectedMilestone].image} 
+                  alt={paidhuTimelineMilestones[selectedMilestone].title} 
+                  className="milestone-media-img"
+                />
+                <span className="milestone-tag-badge">{paidhuTimelineMilestones[selectedMilestone].tag}</span>
+              </div>
+              <div className="milestone-text-col">
+                <div className="milestone-year-header">
+                  <span className="milestone-big-year">{paidhuTimelineMilestones[selectedMilestone].year}</span>
+                  <span className="milestone-subtitle-gold">{paidhuTimelineMilestones[selectedMilestone].subtitle}</span>
+                </div>
+                <h4 className="milestone-story-title">{paidhuTimelineMilestones[selectedMilestone].title}</h4>
+                <p className="milestone-story-desc">{paidhuTimelineMilestones[selectedMilestone].description}</p>
+                
+                <div className="milestone-controls">
+                  <button 
+                    disabled={selectedMilestone === 0}
+                    onClick={() => setSelectedMilestone(prev => Math.max(0, prev - 1))}
+                    className="milestone-nav-btn prev"
+                  >
+                    ← Previous
+                  </button>
+                  <button 
+                    disabled={selectedMilestone === paidhuTimelineMilestones.length - 1}
+                    onClick={() => setSelectedMilestone(prev => Math.min(paidhuTimelineMilestones.length - 1, prev + 1))}
+                    className="milestone-nav-btn next"
+                  >
+                    Next Milestone →
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {showContactModal && (
         <div className="paidhu-modal-backdrop" onClick={() => setShowContactModal(false)}>
           <div className="paidhu-modal-card" onClick={(e) => e.stopPropagation()}>
