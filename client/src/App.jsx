@@ -990,12 +990,6 @@ function App() {
             </div>
           </div>
         </div>
-
-        {/* Side Section Marker (Matches reference image right edge) */}
-        <div className="section-side-badge">
-          <span className="side-badge-label">Social Media</span>
-          <span className="side-badge-bar" />
-        </div>
       </section>
 
       {/* Featured Ventures & Brands Section */}
