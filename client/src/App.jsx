@@ -1049,6 +1049,56 @@ function App() {
       </section>
 
       {/* Featured Ventures & Brands Section */}
+      {/* Our Timelines / Heritage Pop-Art Showcase Section (Matching Reference Page) */}
+      <section id="timelines" className="paidhu-timelines-section">
+        <div className="timelines-bg-art">
+          <img 
+            src="/assets/paidhu_timelines_collage.jpg" 
+            alt="Paidhu Heritage Collage" 
+            className="timelines-collage-img"
+          />
+          <div className="timelines-overlay-gradient" />
+          <div className="timelines-vignette" />
+        </div>
+
+        <div className="timelines-content-container">
+          <div className="timelines-kicker-badge">
+            <span className="timelines-kicker-dot" />
+            <span>HERITAGE & VISION</span>
+          </div>
+
+          <h2 className="timelines-headline">Our Timelines</h2>
+
+          <p className="timelines-paragraph">
+            Founded on enduring principles of pure organic wellness, visionary craftsmanship, and ethical enterprise, the history of Paidhu Group embodies the spirit of generational innovation in India and across the world. Explore our vibrant history through a set of timelines that highlight major milestones in our growth.
+          </p>
+
+          <button 
+            className="timelines-explore-cta"
+            onClick={() => setShowTimelineModal(true)}
+            aria-label="Explore Paidhu Milestones"
+          >
+            <span>Explore our vibrant history</span>
+            <span className="cta-arrow">→</span>
+          </button>
+
+          {/* Interactive Milestone Dock */}
+          <div className="timelines-milestone-dock">
+            {paidhuTimelineMilestones.map((m, idx) => (
+              <button
+                key={m.year}
+                className={`milestone-pill ${selectedMilestone === idx ? 'active' : ''}`}
+                onClick={() => { setSelectedMilestone(idx); setShowTimelineModal(true); }}
+                title={`View ${m.year}: ${m.title}`}
+              >
+                <span className="milestone-year">{m.year}</span>
+                <span className="milestone-title-brief">{m.subtitle.split(' ')[0]}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="brands" className="paidhu-ventures-section">
         <div className="ventures-header">
           <div className="header-kicker">
