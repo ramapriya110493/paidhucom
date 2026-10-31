@@ -10,3 +10,5 @@ dist/
 .system_generated/
 .vercel/
 Paidhuu-main/
+
+.vercel
