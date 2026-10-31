@@ -30,6 +30,7 @@ function App() {
   const paidhuTimelineMilestones = [
     {
       year: '2018',
+      shortTag: 'Saffron Origins',
       title: 'The Genesis of Ethical Purity',
       subtitle: 'Kashmiri Mongra Saffron Foundations',
       description: 'Paidhu Group commenced operations with a core mission: bringing 100% pure, unadulterated Kashmiri Mongra Saffron directly from artisanal high-altitude valley harvests to discerning international connoisseurs. Establishing strict purity standards, Paidhu pioneered transparent ethical sourcing in traditional agriculture.',
@@ -39,6 +40,7 @@ function App() {
     {
       year: '2020',
       title: 'Pioneering Botanical Agriculture',
+      shortTag: 'Botanical Agri',
       subtitle: 'Climate-Controlled Clean Cultivation',
       description: 'Expanding beyond single spices, Paidhu invested in climate-controlled artisanal processing and sustainable botanical horticulture, developing ethical farm partnerships across Kashmir and Himachal Pradesh for handpicked edible flora and organic culinary extracts.',
       image: '/assets/hero_heritage.jpg',
@@ -47,6 +49,7 @@ function App() {
     {
       year: '2022',
       title: 'Floffi Artisanal Foods Launch',
+      shortTag: 'Floffi Gourmet',
       subtitle: 'Luxury Edible Flora & Gourmet Confections',
       description: "Launching the Floffi brand, Paidhu created India's first premium line of handcrafted edible flower butter cookies, petal jams, and saffron delicacies. Built strictly with 100% organic damask rose, blue pea, and calendula petals with zero artificial preservatives.",
       image: '/assets/hero_flower_food.jpg',
@@ -55,6 +58,7 @@ function App() {
     {
       year: '2024',
       title: 'KalikaSphere & Digital Ecosystems',
+      shortTag: 'KalikaSphere Tech',
       subtitle: 'Next-Generation Learning & Enterprise Solutions',
       description: 'Diversifying into education and technology, Paidhu established KalikaSphere, an enterprise platform focused on empowering next-gen leaders through creative workshops, digital transformation, and strategic innovation consulting.',
       image: '/assets/hero_education.jpg',
@@ -63,6 +67,7 @@ function App() {
     {
       year: '2026',
       title: 'Global Luxury & Ethical Enterprise',
+      shortTag: 'Global Vision',
       subtitle: 'Unified Conglomerate & International Expansion',
       description: 'Today, Paidhu Group stands as a multidisciplinary conglomerate spanning premium agricultural wellness, gourmet confections, innovative tech platforms, and conscious lifestyle ventures, setting the standard for compassionate modern enterprise.',
       image: '/assets/hero_tech.jpg',
@@ -1092,7 +1097,7 @@ function App() {
                 title={`View ${m.year}: ${m.title}`}
               >
                 <span className="milestone-year">{m.year}</span>
-                <span className="milestone-title-brief">{m.subtitle.split(' ')[0]}</span>
+                <span className="milestone-title-brief">{m.shortTag || m.subtitle.split(' ')[0]}</span>
               </button>
             ))}
           </div>
