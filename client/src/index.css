@@ -407,15 +407,15 @@ body {
   height: 100%;
   background: linear-gradient(
     90deg, 
-    rgba(0, 0, 0, 0.88) 0%, 
-    rgba(0, 0, 0, 0.62) 40%, 
-    rgba(0, 0, 0, 0.25) 75%, 
-    rgba(0, 0, 0, 0.7) 100%
+    rgba(5, 6, 10, 0.92) 0%, 
+    rgba(5, 6, 10, 0.65) 45%, 
+    rgba(5, 6, 10, 0.15) 75%, 
+    rgba(5, 6, 10, 0.6) 100%
   ),
   linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.85) 0%,
-    transparent 35%
+    rgba(5, 6, 10, 0.88) 0%,
+    transparent 28%
   );
   pointer-events: none;
   z-index: 3;
@@ -482,14 +482,76 @@ body {
 }
 
 .hero-luxury-title {
-  font-size: 4rem;
-  font-weight: 700;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  font-weight: 800;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   color: #ffffff;
   margin-bottom: 1.5rem;
   font-family: var(--font-sans);
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.9);
+}
+
+.title-lead {
+  color: #ffffff;
+  display: block;
+}
+
+.title-gold-accent {
+  background: linear-gradient(135deg, #d4af37 0%, #f5e08c 50%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+.gold-spark-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  box-shadow: 0 0 10px var(--gold-primary);
+  animation: pulseGold 2s infinite ease-in-out;
+}
+
+/* Live Micro-Metrics Ribbon */
+.hero-metrics-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(12, 14, 20, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  padding: 8px 18px;
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+  margin-top: 1.8rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-metric-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.metric-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-primary);
+  box-shadow: 0 0 6px var(--gold-primary);
+}
+
+.metric-chip-label {
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.hero-metric-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .hero-editorial-quote {

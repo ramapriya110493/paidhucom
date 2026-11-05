@@ -184,7 +184,7 @@ function App() {
       subtitle: 'Pioneering ethical excellence across organic edible botanicals, grade-A Kashmiri saffron, enterprise software, and creative innovation.',
       buttonText: 'Explore Ecosystem',
       secondaryText: 'Our Philosophy',
-      bgImage: '/assets/hero_heritage.jpg',
+      bgImage: '/assets/paidhu_hero_luxury.jpg',
       sectionId: 'brands',
       secondarySectionId: 'philosophy'
     },
@@ -740,15 +740,22 @@ function App() {
         <div className="hero-atmosphere-vignette" />
         <div className="hero-gold-ambient-spot" />
 
-        {/* Hero Narrative Block */}
+        {/* Hero Narrative Block (Modern Luxury 2026 UI) */}
         <div className="hero-narrative-container">
           <div className="hero-badge-pill">
-            <span className="gold-spark">✦</span>
+            <span className="gold-spark-pulse" />
             <span>{heroSlides[currentSlide].badge}</span>
           </div>
           
           <h1 className="hero-luxury-title">
-            {heroSlides[currentSlide].title}
+            {heroSlides[currentSlide].title.includes('.') ? (
+              <>
+                <span className="title-lead">{heroSlides[currentSlide].title.split('.')[0]}.</span>
+                <span className="title-gold-accent">{heroSlides[currentSlide].title.split('.')[1]}</span>
+              </>
+            ) : (
+              <span>{heroSlides[currentSlide].title}</span>
+            )}
           </h1>
           
           <div className="hero-editorial-quote">
@@ -773,6 +780,24 @@ function App() {
             >
               <span>{heroSlides[currentSlide].secondaryText}</span>
             </button>
+          </div>
+
+          {/* Micro-Metrics Live Ribbon */}
+          <div className="hero-metrics-strip">
+            <div className="hero-metric-chip">
+              <span className="metric-chip-dot" />
+              <span className="metric-chip-label">100% Certified Organic</span>
+            </div>
+            <div className="hero-metric-divider" />
+            <div className="hero-metric-chip">
+              <span className="metric-chip-dot" />
+              <span className="metric-chip-label">Grade-A Mongra Kashmir Saffron</span>
+            </div>
+            <div className="hero-metric-divider" />
+            <div className="hero-metric-chip">
+              <span className="metric-chip-dot" />
+              <span className="metric-chip-label">4 Global Verticals</span>
+            </div>
           </div>
         </div>
 
