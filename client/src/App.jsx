@@ -186,51 +186,56 @@ function App() {
       secondaryText: 'Our Philosophy',
       bgImage: '/assets/paidhu_hero_luxury.jpg',
       sectionId: 'brands',
-      secondarySectionId: 'philosophy'
+      secondarySectionId: 'philosophy',
+      metrics: ['100% Certified Organic', 'Grade-A Mongra Kashmir Saffron', '4 Global Verticals']
     },
     {
       id: 'food',
       badge: 'FLORAL GASTRONOMY',
-      title: 'The Art of Edible Botanicals',
+      title: 'The Art of Edible Botanicals. Handcrafted Daily.',
       subtitle: 'Handcrafted Bloom Cookies, petal-infused jams, and flower teas created with 100% natural, preservative-free ingredients for daily wellness.',
       buttonText: 'Discover Floral Foods',
       secondaryText: 'View Brand',
       bgImage: '/assets/hero_flower_food.jpg',
       sectionId: 'brands',
-      secondarySectionId: 'brands'
+      secondarySectionId: 'brands',
+      metrics: ['Zero Additives', 'Handcrafted Bloom Cookies', 'Organic Petal Infusions']
     },
     {
       id: 'saffron',
       badge: 'GRADE-A KASHMIRI SAFFRON',
-      title: 'The Crimson Gold of Kashmir',
+      title: 'The Crimson Gold of Kashmir. Pure Harvest.',
       subtitle: 'Ethically handpicked Grade-A Mongra Kashmiri Saffron delivering authentic aroma, vibrant natural color, and unmatched culinary purity.',
       buttonText: 'Discover Paidhu Saffron',
       secondaryText: 'Purity Standards',
       bgImage: '/assets/hero_saffron.jpg',
       sectionId: 'brands',
-      secondarySectionId: 'philosophy'
+      secondarySectionId: 'philosophy',
+      metrics: ['Grade-A Mongra Certified', '280+ High Crocin Reading', 'Pampore Valley Origin']
     },
     {
       id: 'tech',
       badge: 'ENTERPRISE TECH & DIGITAL',
-      title: 'Next-Gen Digital Transformation',
+      title: 'Next-Gen Transformation. Scalable Architecture.',
       subtitle: 'VIYARA delivers scalable enterprise software, cloud infrastructure, and data-driven marketing to power modern business success.',
       buttonText: 'Discover Viyara Tech',
       secondaryText: 'Solutions',
       bgImage: '/assets/hero_tech.jpg',
       sectionId: 'brands',
-      secondarySectionId: 'brands'
+      secondarySectionId: 'brands',
+      metrics: ['Enterprise Architecture', 'Cloud Infrastructure', 'Data & AI Strategies']
     },
     {
       id: 'education',
       badge: 'CREATIVE LEARNING PLATFORM',
-      title: 'Empowering Future Creators',
+      title: 'Empowering Creators. Shaping Tomorrow.',
       subtitle: 'KalikaSphere bridges creativity, innovation, and digital learning through hands-on workshops and collaborative community programs.',
       buttonText: 'Explore KalikaSphere',
       secondaryText: 'Programs',
       bgImage: '/assets/hero_education.jpg',
       sectionId: 'brands',
-      secondarySectionId: 'brands'
+      secondarySectionId: 'brands',
+      metrics: ['10,000+ Learners Guided', 'Design Thinking Workshops', 'Collaborative Innovation Labs']
     }
   ];
 
@@ -784,20 +789,15 @@ function App() {
 
           {/* Micro-Metrics Live Ribbon */}
           <div className="hero-metrics-strip">
-            <div className="hero-metric-chip">
-              <span className="metric-chip-dot" />
-              <span className="metric-chip-label">100% Certified Organic</span>
-            </div>
-            <div className="hero-metric-divider" />
-            <div className="hero-metric-chip">
-              <span className="metric-chip-dot" />
-              <span className="metric-chip-label">Grade-A Mongra Kashmir Saffron</span>
-            </div>
-            <div className="hero-metric-divider" />
-            <div className="hero-metric-chip">
-              <span className="metric-chip-dot" />
-              <span className="metric-chip-label">4 Global Verticals</span>
-            </div>
+            {(heroSlides[currentSlide].metrics || ['100% Certified Organic', 'Grade-A Mongra Kashmir Saffron', '4 Global Verticals']).map((metric, mIdx, arr) => (
+              <React.Fragment key={mIdx}>
+                <div className="hero-metric-chip">
+                  <span className="metric-chip-dot" />
+                  <span className="metric-chip-label">{metric}</span>
+                </div>
+                {mIdx < arr.length - 1 && <div className="hero-metric-divider" />}
+              </React.Fragment>
+            ))}
           </div>
         </div>
 
