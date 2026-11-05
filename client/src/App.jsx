@@ -438,12 +438,13 @@ function App() {
                   <span className="gold-indicator" />
                 </a>
               </li>
-                            <li>
+              <li onMouseEnter={() => setActiveMegaMenu('innovation')}>
                 <a 
-                  href="#timelines" 
-                  onClick={(e) => { e.preventDefault(); scrollToSection('timelines'); }}
+                  href="#innovation" 
+                  className={activeMegaMenu === 'innovation' ? 'active' : ''} 
+                  onClick={(e) => { e.preventDefault(); scrollToSection('innovation'); }}
                 >
-                  Timelines
+                  Innovation
                   <span className="gold-indicator" />
                 </a>
               </li>
@@ -555,6 +556,13 @@ function App() {
               Our Ventures
             </a>
             <a 
+              href="#innovation" 
+              className="mobile-link"
+              onClick={(e) => { e.preventDefault(); scrollToSection('innovation'); setMobileMenuOpen(false); }}
+            >
+              Innovation Labs
+            </a>
+            <a 
               href="#news" 
               className="mobile-link"
               onClick={(e) => { e.preventDefault(); scrollToSection('news'); setMobileMenuOpen(false); }}
@@ -591,7 +599,7 @@ function App() {
           </div>
         </div>
 
-        {/* Ventures Mega Menu */}
+        {/* Ventures Mega Menu (2026 Luxury Conglomerate UI) */}
         {activeMegaMenu === 'ventures' && (
           <div 
             className="paidhu-mega-dropdown"
@@ -599,59 +607,196 @@ function App() {
             onMouseLeave={() => setActiveMegaMenu(null)}
           >
             <div className="mega-dropdown-grid">
-              <div className="mega-pillar">
-                <span className="pillar-tag">GASTRONOMY</span>
-                <h4>Floral & Ethical Foods</h4>
-                <div className="pillar-links">
-                  <a href="#brands" onClick={(e) => { e.preventDefault(); handleVerticalClick('food'); }}>
-                    Paidhu Ethical Foods
+              {/* Column 1: Gastronomy */}
+              <div className="mega-pillar-card">
+                <div className="pillar-header">
+                  <div className="pillar-icon-badge">
+                    <span className="pillar-glyph">✦</span>
+                    <span className="pillar-tag">GASTRONOMY</span>
+                  </div>
+                  <h4>Floral & Ethical Foods</h4>
+                  <p className="pillar-desc">Artisanal edible petals, herbal teas, and Kashmir Mongra saffron.</p>
+                </div>
+                <div className="pillar-links-list">
+                  <a href="#brands" className="pillar-link-item" onClick={(e) => { e.preventDefault(); handleVerticalClick('food'); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Paidhu Floral Confections</span>
+                      <span className="link-subtitle">Bloom cookies & edible petal infusions</span>
+                    </div>
+                    <span className="link-arrow">→</span>
                   </a>
-                  <a href="#brands" onClick={(e) => { e.preventDefault(); handleVerticalClick('food'); }}>
-                    Grade-A Kashmiri Saffron
+                  <a href="#brands" className="pillar-link-item" onClick={(e) => { e.preventDefault(); handleVerticalClick('food'); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Grade-A Kashmiri Saffron</span>
+                      <span className="link-subtitle">Certified 280+ Crocin natural potency</span>
+                    </div>
+                    <span className="link-arrow">→</span>
                   </a>
-                  <a href="#brands" onClick={(e) => { e.preventDefault(); handleVerticalClick('food'); }}>
-                    Floffi Artisanal Spreads
+                  <a href="#brands" className="pillar-link-item" onClick={(e) => { e.preventDefault(); handleVerticalClick('food'); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Floffi Artisanal Spreads</span>
+                      <span className="link-subtitle">100% preservative-free gourmet petal jams</span>
+                    </div>
+                    <span className="link-arrow">→</span>
                   </a>
                 </div>
               </div>
 
-              <div className="mega-pillar">
-                <span className="pillar-tag">TECHNOLOGY</span>
-                <h4>Software & Digital Growth</h4>
-                <div className="pillar-links">
-                  <a href="#brands" onClick={(e) => { e.preventDefault(); handleVerticalClick('tech'); }}>
-                    VIYARA Software Platform
+              {/* Column 2: Technology */}
+              <div className="mega-pillar-card">
+                <div className="pillar-header">
+                  <div className="pillar-icon-badge">
+                    <span className="pillar-glyph">⚡</span>
+                    <span className="pillar-tag">TECHNOLOGY</span>
+                  </div>
+                  <h4>Software & Digital Growth</h4>
+                  <p className="pillar-desc">Scalable cloud architectures and enterprise software platforms.</p>
+                </div>
+                <div className="pillar-links-list">
+                  <a href="#brands" className="pillar-link-item" onClick={(e) => { e.preventDefault(); handleVerticalClick('tech'); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">VIYARA Software Platform</span>
+                      <span className="link-subtitle">Modern high-throughput SaaS engines</span>
+                    </div>
+                    <span className="link-arrow">→</span>
                   </a>
-                  <a href="#brands" onClick={(e) => { e.preventDefault(); handleVerticalClick('tech'); }}>
-                    Enterprise Cloud & Marketing
+                  <a href="#brands" className="pillar-link-item" onClick={(e) => { e.preventDefault(); handleVerticalClick('tech'); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Enterprise Cloud & Data</span>
+                      <span className="link-subtitle">AI-driven marketing & secure infrastructure</span>
+                    </div>
+                    <span className="link-arrow">→</span>
                   </a>
                 </div>
               </div>
 
-              <div className="mega-pillar">
-                <span className="pillar-tag">EDUCATION</span>
-                <h4>Creative & Tech Academy</h4>
-                <div className="pillar-links">
-                  <a href="#brands" onClick={(e) => { e.preventDefault(); handleVerticalClick('education'); }}>
-                    KalikaSphere Learning Hub
+              {/* Column 3: Education */}
+              <div className="mega-pillar-card">
+                <div className="pillar-header">
+                  <div className="pillar-icon-badge">
+                    <span className="pillar-glyph">◈</span>
+                    <span className="pillar-tag">EDUCATION</span>
+                  </div>
+                  <h4>Creative & Tech Academy</h4>
+                  <p className="pillar-desc">Empowering next-generation builders through interactive learning.</p>
+                </div>
+                <div className="pillar-links-list">
+                  <a href="#brands" className="pillar-link-item" onClick={(e) => { e.preventDefault(); handleVerticalClick('education'); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">KalikaSphere Learning Hub</span>
+                      <span className="link-subtitle">Creative design & technology workshops</span>
+                    </div>
+                    <span className="link-arrow">→</span>
                   </a>
-                  <a href="#brands" onClick={(e) => { e.preventDefault(); handleVerticalClick('education'); }}>
-                    Community Workshops & Mentorship
+                  <a href="#brands" className="pillar-link-item" onClick={(e) => { e.preventDefault(); handleVerticalClick('education'); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Mentorship & Community</span>
+                      <span className="link-subtitle">Cohort-based learning & industry skills</span>
+                    </div>
+                    <span className="link-arrow">→</span>
                   </a>
                 </div>
               </div>
 
-              <div className="mega-pillar mega-pillar-highlight">
-                <span className="pillar-tag gold">PORTFOLIO</span>
-                <h4>All Ventures</h4>
-                <p>Explore our integrated conglomerate across high-end consumer goods, technology, and learning.</p>
-                <a 
-                  href="#brands" 
-                  className="mega-cta-link"
-                  onClick={(e) => { e.preventDefault(); handleVerticalClick('all'); }}
-                >
-                  View All Brands →
-                </a>
+              {/* Column 4: Conglomerate Showcase Card */}
+              <div className="mega-pillar-card mega-portfolio-spotlight">
+                <div className="portfolio-spotlight-content">
+                  <div className="spotlight-badge">
+                    <span className="spotlight-spark">✦</span>
+                    <span>PAIDHU PORTFOLIO</span>
+                  </div>
+                  <h4 className="spotlight-title">Curated Conglomerate</h4>
+                  <p className="spotlight-desc">Uncompromising excellence across gourmet botanicals, deep cloud tech, and creative education.</p>
+                  
+                  <div className="spotlight-meta-tags">
+                    <span className="spotlight-tag">4 Verticals</span>
+                    <span className="spotlight-tag">100% Ethical</span>
+                    <span className="spotlight-tag">Grade-A Certified</span>
+                  </div>
+
+                  <a 
+                    href="#brands" 
+                    className="spotlight-cta-btn"
+                    onClick={(e) => { e.preventDefault(); handleVerticalClick('all'); setActiveMegaMenu(null); }}
+                  >
+                    <span>View All Ventures</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Innovation Mega Menu */}
+        {activeMegaMenu === 'innovation' && (
+          <div 
+            className="paidhu-mega-dropdown"
+            onMouseEnter={() => setActiveMegaMenu('innovation')}
+            onMouseLeave={() => setActiveMegaMenu(null)}
+          >
+            <div className="mega-dropdown-grid simple">
+              <div className="mega-pillar-card">
+                <div className="pillar-header">
+                  <div className="pillar-icon-badge">
+                    <span className="pillar-glyph">🔬</span>
+                    <span className="pillar-tag">LAB 01</span>
+                  </div>
+                  <h4>Botanical Bio-Science</h4>
+                  <p className="pillar-desc">Cryogenic extraction of Kashmiri Crocin and bio-active flower petals.</p>
+                </div>
+                <div className="pillar-links-list">
+                  <a href="#innovation" className="pillar-link-item" onClick={(e) => { e.preventDefault(); scrollToSection('innovation'); setActiveInnovationTab(0); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Crocin Bio-Potency Standards</span>
+                      <span className="link-subtitle">Pure Grade-A Mongra laboratory validation</span>
+                    </div>
+                    <span className="link-arrow">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="mega-pillar-card">
+                <div className="pillar-header">
+                  <div className="pillar-icon-badge">
+                    <span className="pillar-glyph">🌸</span>
+                    <span className="pillar-tag">LAB 02</span>
+                  </div>
+                  <h4>Floffi Clean Culinary</h4>
+                  <p className="pillar-desc">Preservative-free floral gastronomy and sustainable shelf-life preservation.</p>
+                </div>
+                <div className="pillar-links-list">
+                  <a href="#innovation" className="pillar-link-item" onClick={(e) => { e.preventDefault(); scrollToSection('innovation'); setActiveInnovationTab(1); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Micro-Baking Formulation</span>
+                      <span className="link-subtitle">Damask rose & calendula bloom cookies</span>
+                    </div>
+                    <span className="link-arrow">→</span>
+                  </a>
+                </div>
+              </div>
+
+              <div className="mega-pillar-card">
+                <div className="pillar-header">
+                  <div className="pillar-icon-badge">
+                    <span className="pillar-glyph">⚡</span>
+                    <span className="pillar-tag">LAB 03</span>
+                  </div>
+                  <h4>KalikaSphere & VIYARA Tech</h4>
+                  <p className="pillar-desc">Next-generation enterprise software, telemetry, and interactive creative learning tools.</p>
+                </div>
+                <div className="pillar-links-list">
+                  <a href="#innovation" className="pillar-link-item" onClick={(e) => { e.preventDefault(); scrollToSection('innovation'); setActiveInnovationTab(2); setActiveMegaMenu(null); }}>
+                    <div className="link-text-group">
+                      <span className="link-title">Explore Future Labs</span>
+                      <span className="link-subtitle">Interactive research demos & metrics</span>
+                    </div>
+                    <span className="link-arrow">→</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

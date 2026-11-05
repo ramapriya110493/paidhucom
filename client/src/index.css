@@ -253,27 +253,28 @@ body {
 }
 
 /* ==========================================================================
-   MEGA DROPDOWNS
+   MEGA DROPDOWNS (2026 LUXURY FROSTED GLASS & CONGLOMERATE SHOWCASE)
    ========================================================================== */
 .paidhu-mega-dropdown {
   position: absolute;
   top: 76px;
   left: 0;
   width: 100%;
-  background: rgba(5, 5, 5, 0.98);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border-top: 1px solid var(--border-gold-subtle);
-  border-bottom: 1px solid var(--border-gold-subtle);
-  padding: 2.8rem 5% 3.2rem;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95);
-  animation: megaFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(180deg, rgba(8, 8, 10, 0.95) 0%, rgba(5, 5, 6, 0.98) 100%);
+  backdrop-filter: blur(36px) saturate(180%);
+  -webkit-backdrop-filter: blur(36px) saturate(180%);
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.22);
+  padding: 2.2rem 4% 2.6rem;
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  animation: megaFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
 }
 
 @keyframes megaFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -282,29 +283,233 @@ body {
 }
 
 .mega-dropdown-grid {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2.5rem;
+  gap: 1.6rem;
 }
 
 .mega-dropdown-grid.simple {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.mega-pillar {
+/* Luxury Pillar Card */
+.mega-pillar-card {
+  background: rgba(18, 18, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 1.6rem 1.4rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mega-pillar-card:hover {
+  background: rgba(24, 24, 30, 0.75);
+  border-color: rgba(212, 175, 55, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(212, 175, 55, 0.04);
+}
+
+.pillar-header {
+  margin-bottom: 1.2rem;
+}
+
+.pillar-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.6rem;
+}
+
+.pillar-glyph {
+  color: var(--gold-primary);
+  font-size: 0.85rem;
 }
 
 .pillar-tag {
   color: var(--gold-primary);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+.mega-pillar-card h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.01em;
+}
+
+.pillar-desc {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.pillar-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pillar-link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.8rem;
+  margin: 0 -0.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.22s ease;
+}
+
+.pillar-link-item:hover {
+  background: rgba(212, 175, 55, 0.09);
+  padding-left: 1.05rem;
+}
+
+.link-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.link-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.link-subtitle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.2;
+}
+
+.link-arrow {
+  color: var(--gold-primary);
+  font-size: 0.95rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: all 0.22s ease;
+}
+
+.pillar-link-item:hover .link-title {
+  color: var(--gold-primary);
+}
+
+.pillar-link-item:hover .link-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Portfolio Spotlight Featured Card */
+.mega-portfolio-spotlight {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.1) 0%, rgba(14, 14, 18, 0.9) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+.mega-portfolio-spotlight:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 14px 34px rgba(212, 175, 55, 0.12), inset 0 0 25px rgba(212, 175, 55, 0.12);
+}
+
+.portfolio-spotlight-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.spotlight-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 4px 10px;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--gold-primary);
+  margin-bottom: 0.8rem;
+}
+
+.spotlight-spark {
+  color: var(--gold-primary);
+  font-size: 0.8rem;
+}
+
+.spotlight-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.spotlight-desc {
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.45;
+  margin: 0 0 1.2rem;
+}
+
+.spotlight-meta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1.4rem;
+  margin-top: auto;
+}
+
+.spotlight-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #f3e5ab;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.spotlight-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #d4af37 0%, #f3e5ab 50%, #aa771c 100%);
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+
+.spotlight-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(212, 175, 55, 0.45);
+  color: #000000;
+}
+
+/* Legacy Fallbacks for Philosophy/About/Careers simple grids */
+.mega-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
 .mega-pillar h4 {
